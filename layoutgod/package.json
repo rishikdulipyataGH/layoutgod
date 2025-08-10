@@ -1,0 +1,33 @@
+{
+  "name": "keyboard-layout-god",
+  "version": "1.0.0",
+  "description": "The ultimate keyboard layout analyzer - designed and developed by Rishik Dulipyata",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "migrate": "cd server && npm run migrate",
+    "seed": "cd server && npm run seed"
+  },
+  "keywords": [
+    "keyboard",
+    "layout",
+    "typing",
+    "ergonomics",
+    "qwerty",
+    "dvorak",
+    "colemak",
+    "analyzer"
+  ],
+  "author": "Rishik Dulipyata",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}

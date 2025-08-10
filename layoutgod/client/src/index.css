@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-purple: #7c3aed;
+  --color-purple-dark: #6b21a8;
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  background-color: var(--color-dark-bg);
+  color: #f8fafc;
+}
+
+.keyboard-key {
+  @apply relative flex items-center justify-center min-w-[2.5rem] min-h-[2.5rem] 
+         rounded-lg border transition-all duration-200 font-mono text-sm font-medium
+         cursor-pointer select-none;
+}
+
+.keyboard-key.normal {
+  @apply bg-gray-100 dark:bg-dark-700 border-gray-300 dark:border-dark-600
+         text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-dark-600;
+}
+
+.keyboard-key.active {
+  @apply bg-purple-500 border-purple-600 text-white shadow-lg scale-105;
+}
+
+.keyboard-key.highlight {
+  @apply bg-purple-100 dark:bg-purple-900 border-purple-300 dark:border-purple-700
+         text-purple-800 dark:text-purple-200;
+}
+
+.keyboard-row {
+  @apply flex gap-1 justify-center items-center;
+}
+
+.keyboard-container {
+  @apply flex flex-col gap-1 p-4 bg-gray-50 dark:bg-dark-800 rounded-xl border
+         border-gray-200 dark:border-dark-700;
+}
+
+.stats-card {
+  @apply bg-white dark:bg-dark-800 rounded-lg border border-gray-200 dark:border-dark-700
+         p-6 shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+.metric-good {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.metric-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.metric-bad {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.btn-primary {
+  @apply bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg
+         font-medium transition-colors duration-200 focus:outline-none focus:ring-2
+         focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-dark-900;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 dark:bg-dark-600 dark:hover:bg-dark-500
+         text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200
+         focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2
+         dark:focus:ring-offset-dark-900;
+}
+
+.btn-outline {
+  @apply border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white
+         dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-600
+         dark:hover:text-white px-4 py-2 rounded-lg font-medium transition-colors
+         duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500
+         focus:ring-offset-2 dark:focus:ring-offset-dark-900;
+}
+
+.input-field {
+  @apply block w-full px-3 py-2 border border-gray-300 dark:border-dark-600
+         rounded-md shadow-sm placeholder-gray-400 dark:placeholder-dark-400
+         bg-white dark:bg-dark-700 text-gray-900 dark:text-gray-100
+         focus:outline-none focus:ring-purple-500 focus:border-purple-500;
+}
+
+.sidebar-nav {
+  @apply bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700
+         min-h-screen;
+}
+
+.nav-item {
+  @apply flex items-center justify-start px-4 py-2.5 text-gray-700 dark:text-gray-300
+         hover:bg-gray-100 dark:hover:bg-dark-700 transition-colors duration-200 min-h-[44px];
+}
+
+.nav-item.active {
+  @apply bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300
+         border-r-2 border-purple-600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-dark-600 rounded-full hover:bg-gray-500 dark:hover:bg-dark-500;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .keyboard-key {
+    @apply min-w-[2rem] min-h-[2rem] text-xs;
+  }
+  
+  .keyboard-container {
+    @apply p-2;
+  }
+}
