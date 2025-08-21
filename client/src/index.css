@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-purple: #8b5cf6;
+  --color-purple-dark: #7c3aed;
+  --color-violet: #a78bfa;
+  --color-indigo: #818cf8;
+  --color-pink: #ec4899;
+  --color-dark-bg: #0f0f23;
+  --color-dark-surface: #1a1a2e;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-heading: linear-gradient(to right, #8b5cf6, #ec4899, #3b82f6);
+  --gradient-purple-pink: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-indigo-purple: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  background-color: var(--color-dark-bg);
+  color: #f8fafc;
+}
+
+.keyboard-key {
+  @apply relative flex items-center justify-center min-w-[2rem] min-h-[2rem] 
+         rounded-md border transition-all duration-150 font-mono text-xs
+         cursor-pointer select-none;
+}
+
+.keyboard-key.normal {
+  @apply bg-gray-50 dark:bg-dark-700 border-gray-200 dark:border-dark-600
+         text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-600;
+}
+
+.keyboard-key.active {
+  @apply bg-purple-500 border-purple-600 text-white shadow-md scale-105;
+}
+
+.keyboard-key.highlight {
+  @apply bg-purple-50 dark:bg-purple-900/30 border-purple-200 dark:border-purple-700
+         text-purple-700 dark:text-purple-300;
+}
+
+.keyboard-row {
+  @apply flex gap-0.5 justify-center items-center;
+}
+
+.keyboard-container {
+  @apply flex flex-col gap-0.5 p-3 bg-gray-50 dark:bg-dark-800 rounded-lg border
+         border-gray-200 dark:border-dark-700;
+}
+
+.stats-card {
+  @apply bg-white dark:bg-dark-800 rounded-xl border border-gray-200 dark:border-dark-700
+         p-5 transition-all duration-200 hover:shadow-lg;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(249,250,251,0.9) 100%);
+}
+
+.dark .stats-card {
+  background: linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(31,41,55,0.95) 100%);
+}
+
+.metric-good {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.metric-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.metric-bad {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.btn-primary {
+  @apply text-white px-4 py-2 rounded-lg text-sm font-medium
+         transition-all duration-200 transform hover:scale-105
+         focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 4px 15px 0 rgba(139, 92, 246, 0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.3);
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 dark:bg-dark-600 dark:hover:bg-dark-500
+         text-white px-4 py-2 rounded-md text-sm transition-colors duration-150
+         focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-1
+         dark:focus:ring-offset-dark-900;
+}
+
+.btn-outline {
+  @apply border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white
+         dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-600
+         dark:hover:text-white px-4 py-2 rounded-md text-sm transition-colors
+         duration-150 focus:outline-none focus:ring-2 focus:ring-purple-500
+         focus:ring-offset-1 dark:focus:ring-offset-dark-900;
+}
+
+.input-field {
+  @apply block w-full px-3 py-1.5 border border-gray-300 dark:border-dark-600
+         rounded-md text-sm placeholder-gray-400 dark:placeholder-dark-400
+         bg-white dark:bg-dark-700 text-gray-900 dark:text-gray-100
+         focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500;
+}
+
+.sidebar-nav {
+  @apply bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700
+         min-h-screen;
+}
+
+.nav-item {
+  @apply flex items-center justify-start px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300
+         hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-200 rounded-lg mx-1
+         hover:translate-x-1;
+}
+
+.nav-item.active {
+  @apply text-purple-700 dark:text-purple-300;
+  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(236,72,153,0.1) 100%);
+  border-left: 3px solid #8b5cf6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-dark-600 rounded-full hover:bg-gray-500 dark:hover:bg-dark-500;
+}
+
+/* Animation classes - simplified */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient text utility class */
+.gradient-text {
+  background: linear-gradient(to right, #8b5cf6, #ec4899, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-purple-pink {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .keyboard-key {
+    @apply min-w-[1.75rem] min-h-[1.75rem] text-xs;
+  }
+  
+  .keyboard-container {
+    @apply p-2 gap-0.5;
+  }
+}
